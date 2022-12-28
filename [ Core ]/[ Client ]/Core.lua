@@ -12,9 +12,15 @@ StartPos   = _Spawner.StartPosition
 Cutscenes  = _Spawner.Cutscenes
 Randomizer = _Spawner.StartRandomizer
 Tailor     = _Spawner.Tailor
-Song       = _Spawner.Song
-Talk       = _Dialogs.Spawner
+Song       = _Spawner.Songs
 Despawn    = _Spawner.VehDespawn
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ShowPrompt    = false
+Prompt_Stop   = nil
+Prompt_Out    = nil
+Prompt_Cinema = nil
+Group         = GetRandomIntInRange(0, 0xffffff)
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 CreateThread(function()

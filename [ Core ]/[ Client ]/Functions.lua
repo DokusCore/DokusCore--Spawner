@@ -15,9 +15,19 @@ function UserInGame()
 end
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
+function MSG(Obj)
+  return _("Spawner", Obj, _Language.Lang)
+end
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+function SYS(Obj)
+  return _("System", Obj, _Language.Lang)
+end
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 function CreateDriver(PedID, Model, Coords)
   LoadModel(Model)
-  local DriverID = CreatePed(Model, Coords, PedID, false, 0)
+  local DriverID = CreatePed(Model, Coords, PedID, true, 0)
   Citizen.InvokeNative(0x283978A15512B2FE, DriverID, true) -- SetRandomOutfitVariation
   Citizen.InvokeNative(0x58A850EAEE20FAA3, DriverID) -- PlaceObjectOnGroundProperly
   SetEntityNoCollisionEntity(PedID, DriverID, true)
@@ -65,7 +75,10 @@ function WaitForUserToLeaveVehicle(PedID)
 end
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-
+function RestartCharPicker()
+  NoteObjective('ERROR:', "The system was unable to detect yoru CharID! We are restarting the characters screen!", 'Horn', 5000)
+  TriggerEvent('DokusCore:Characters:Start')
+end
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
